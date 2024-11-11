@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Ground
+  - Grass
+  - Water
   layers:
   - Default
   - TransparentFX
