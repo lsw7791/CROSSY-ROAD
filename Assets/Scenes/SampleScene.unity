@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 426802878}
   - component: {fileID: 426802880}
   - component: {fileID: 426802879}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 635364298}
   - component: {fileID: 635364300}
   - component: {fileID: 635364299}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,6 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702537263}
   - component: {fileID: 702537262}
+  - component: {fileID: 702537264}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -459,11 +460,11 @@ MonoBehaviour:
   - {fileID: 5387896664061699307, guid: fec417ba9f1ce4ff082c08472e72c7bf, type: 3}
   - {fileID: 4364170067486442095, guid: b43c8fa2687994821b2f69f693276b31, type: 3}
   - {fileID: 1981519936077277202, guid: f8797ec1933264272819dc436e01e969, type: 3}
-  carPrefabs:
-  - {fileID: 3526656333118620634, guid: cacb113296c6b574f9ee6f490eaee098, type: 3}
-  - {fileID: 5965209700560220994, guid: c98f7aa5a4b596d4aa2cbec16569d93f, type: 3}
-  - {fileID: 6036943006681877870, guid: affd65c6c8bad6f438c35382c581f299, type: 3}
-  - {fileID: 7694763722262773211, guid: 52764cd8044f2c647a16b4966971d8f4, type: 3}
+  treePrefabs:
+  - {fileID: 660086656799076114, guid: e257fe35a4dbbc447a72e7eb64514325, type: 3}
+  - {fileID: 4871686800820488635, guid: 4cf06cd1e020aaa4bb4f5f32809c6528, type: 3}
+  - {fileID: 2487602997839740261, guid: 22a704b98e2d8894d91fcf1f47dd3b95, type: 3}
+  - {fileID: 5568032014537627825, guid: afa440c392e45a6489769e86914e6982, type: 3}
   startPosition: {x: 0, y: 0, z: 2}
   minConsecutive: 2
   maxConsecutive: 5
@@ -484,6 +485,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702537264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702537261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2328d7264948481e980adb27b424108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPrefabs:
+  - {fileID: 3526656333118620634, guid: cacb113296c6b574f9ee6f490eaee098, type: 3}
+  - {fileID: 5965209700560220994, guid: c98f7aa5a4b596d4aa2cbec16569d93f, type: 3}
+  - {fileID: 6036943006681877870, guid: affd65c6c8bad6f438c35382c581f299, type: 3}
+  - {fileID: 7694763722262773211, guid: 52764cd8044f2c647a16b4966971d8f4, type: 3}
+  spawnInterval: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +608,7 @@ GameObject:
   - component: {fileID: 805842240}
   - component: {fileID: 805842242}
   - component: {fileID: 805842241}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +796,7 @@ GameObject:
   - component: {fileID: 1043965417}
   - component: {fileID: 1043965419}
   - component: {fileID: 1043965418}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +875,7 @@ GameObject:
   - component: {fileID: 1234024952}
   - component: {fileID: 1234024954}
   - component: {fileID: 1234024953}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1067,7 @@ GameObject:
   - component: {fileID: 2020618635}
   - component: {fileID: 2020618634}
   - component: {fileID: 2020618633}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1170,7 @@ GameObject:
   - component: {fileID: 2120085897}
   - component: {fileID: 2120085899}
   - component: {fileID: 2120085898}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,8 +1444,8 @@ Transform:
   m_GameObject: {fileID: 6958984191588250871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 2, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 250215053}
@@ -1566,7 +1585,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &8904666706153215271
 MonoBehaviour:

@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: -7678144420946927365}
   m_Layer: 0
   m_Name: Minivan
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

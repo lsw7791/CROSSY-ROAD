@@ -6,17 +6,19 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public float moveDistance;
     public float moveSpeed;
-    public float jumpHeight; 
+    public float jumpHeight;
     public float jumpDuration;
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
+    private Vector3 fallbackPosition; 
     private bool isMoving = false;
+    private bool isReturning = false; 
     private float jumpProgress;
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed && !isMoving)
+        if (context.phase == InputActionPhase.Performed && !isMoving && !isReturning)
         {
             curMovementInput = context.ReadValue<Vector2>();
             SetTargetPosition();
@@ -47,29 +49,60 @@ public class PlayerController : MonoBehaviour
         if (direction != Vector3.zero)
         {
             startPosition = transform.position;
+            fallbackPosition = startPosition; // 현재 위치 저장
             targetPosition = transform.position + direction * moveDistance;
             isMoving = true;
-            jumpProgress = 0f; 
+            jumpProgress = 0f;
         }
     }
 
     private void Update()
     {
-        if (isMoving)
+        if (isMoving || isReturning)
         {
             // 점프 진행도를 증가시킴
             jumpProgress += Time.deltaTime / jumpDuration;
 
-            // 목표 위치로 이동하면서 y값을 포물선 형태로 변화
-            Vector3 currentPosition = Vector3.Lerp(startPosition, targetPosition, jumpProgress);
-            currentPosition.y += Mathf.Sin(jumpProgress * Mathf.PI) * jumpHeight;
+            // 이동 중일 때와 되돌아올 때 위치 계산
+            Vector3 currentPosition;
+            if (isReturning)
+            {
+                currentPosition = Vector3.Lerp(targetPosition, fallbackPosition, jumpProgress);
+            }
+            else
+            {
+                currentPosition = Vector3.Lerp(startPosition, targetPosition, jumpProgress);
+            }
 
+            // y값을 포물선 형태로 변화
+            currentPosition.y += Mathf.Sin(jumpProgress * Mathf.PI) * jumpHeight;
             transform.position = currentPosition;
 
             if (jumpProgress >= 1f)
             {
-                transform.position = targetPosition;
+                if (isReturning)
+                {
+                    transform.position = fallbackPosition;
+                    isReturning = false;
+                }
+                else
+                {
+                    transform.position = targetPosition;
+                    isMoving = false;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Tree"))
+        {
+            if (isMoving)
+            {
                 isMoving = false;
+                isReturning = true;
+                jumpProgress = 0f; // 되돌아오는 모션 초기화
             }
         }
     }
@@ -79,9 +112,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             UIManager.Instance.cherryCount++;
-            Destroy(other.gameObject); 
+            Destroy(other.gameObject);
         }
     }
-
 }
-

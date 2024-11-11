@@ -39,5 +39,13 @@ public class CarController : MonoBehaviour
             // initialX가 0보다 작으면 x값 증가
             transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
         }
+        //if (transform.position.y < 0) 파괴를 직접 관리할 수 있게 하기
+        //{
+        //    Destroy(gameObject);
+        //}
+        if (transform.position.y < 0) //파괴를 맵매니저에게 위임
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

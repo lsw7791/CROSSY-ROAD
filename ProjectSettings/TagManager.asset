@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Grass
   - Water
+  - Tree
+  - Car
   layers:
   - Default
   - TransparentFX
