@@ -10,8 +10,9 @@ public class MapManager : MonoBehaviour
     public Vector3 startPosition;
     public int minConsecutive;
     public int maxConsecutive;
+    public int spaceThreshold;
 
-    [SerializeField] private float spawnThreshold;
+   [SerializeField] private float spawnThreshold;
     private float nextSpawnPositionZ;
     private List<GameObject> spawnedObjects = new List<GameObject>(); // 생성된 오브젝트 저장
 
@@ -69,7 +70,7 @@ public class MapManager : MonoBehaviour
                         }
                         else
                         {
-                            k--;
+                            continue;
                         }
                     }
 
@@ -98,7 +99,6 @@ public class MapManager : MonoBehaviour
     // 나무가 생성될 때 주변에 충분한 공간이 있는지 체크
     bool IsEnoughSpaceForTree(Vector3 position)
     {
-        float spaceThreshold = 2f; 
         foreach (var existingPosition in treePositions)
         {
             if (Vector3.Distance(position, existingPosition) < spaceThreshold)

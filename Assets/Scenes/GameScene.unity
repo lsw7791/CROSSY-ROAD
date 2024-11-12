@@ -586,6 +586,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 2}
   minConsecutive: 2
   maxConsecutive: 5
+  spaceThreshold: 3
   spawnThreshold: 26
 --- !u!4 &702537263
 Transform:
