@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            UIManager.Instance.cherryCount++;
+            GameManager.Instance.cherryCount++;
             Destroy(other.gameObject);
         }
     }
