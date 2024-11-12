@@ -5,11 +5,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject playerPrefab;  
 
-    private void Awake()
-    {
-      
-    }
-
     private void Update()
     {
         if (transform.position.y < 0)

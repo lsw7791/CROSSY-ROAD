@@ -15,7 +15,7 @@ public class MapManager : MonoBehaviour
     private float nextSpawnPositionZ;
     private List<GameObject> spawnedObjects = new List<GameObject>(); // 생성된 오브젝트 저장
 
-    // 나무의 생성 위치를 추적하는 Set
+    // 나무의 생성 위치를 추적
     private HashSet<Vector3> treePositions = new HashSet<Vector3>();
 
     void Start()
@@ -73,7 +73,7 @@ public class MapManager : MonoBehaviour
                         }
                     }
 
-                    // 체리 생성 (나무를 생성한 후, 그 근처에 생성)
+                    // 체리 생성
                     GenerateCherry(instance.transform.position);
                 }
             }
@@ -98,7 +98,6 @@ public class MapManager : MonoBehaviour
     // 나무가 생성될 때 주변에 충분한 공간이 있는지 체크
     bool IsEnoughSpaceForTree(Vector3 position)
     {
-        // 나무가 생성될 위치 주변에 충분한 공간이 있는지 체크
         float spaceThreshold = 2f; 
         foreach (var existingPosition in treePositions)
         {

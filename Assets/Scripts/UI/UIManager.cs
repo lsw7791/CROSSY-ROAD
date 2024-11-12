@@ -21,13 +21,11 @@ public class UIManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // 씬이 로드될 때마다 UI 오브젝트들을 다시 참조
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDestroy()
     {
-        // 메모리 누수를 방지하기 위해 이벤트 해제
         if (Instance == this)
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -42,6 +40,7 @@ public class UIManager : MonoBehaviour
         highScore = GameObject.Find("HighScoreTxt")?.GetComponent<Text>();
         uiGameOver = GameObject.Find("UIGameOver");
 
+        //초기화 
         DataManager.Instance.score = 0;
         Time.timeScale = 1;
 
