@@ -20,11 +20,13 @@ public class Player : MonoBehaviour
         {
             UIManager.Instance.uiGameOver.SetActive(true);
             Time.timeScale = 0;
+            SoundManager.Instance.PlayCollisionSound();
         }
 
         if (other.CompareTag("Cherry"))
         {
             DataManager.Instance.cherryCount++;
+            SoundManager.Instance.PlayCherrySound();
             Destroy(other.gameObject);
         }
     }

@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
             jumpProgress = 0f;
         }
+        SoundManager.Instance.PlayJumpSound();
     }
 
     private void Update()
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isMoving)
             {
+                SoundManager.Instance.PlayCollisionSound();
                 isMoving = false;
                 isReturning = true;
                 jumpProgress = 0f; // 되돌아오는 모션 초기화
