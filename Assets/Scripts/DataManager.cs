@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
     public GameObject player;
     public int cherryCount;
     public int highScoreValue;
     public int score;
 
-    public static GameManager Instance { get; private set; }
+    public static DataManager Instance { get; private set; }
 
     private void Awake()
     {

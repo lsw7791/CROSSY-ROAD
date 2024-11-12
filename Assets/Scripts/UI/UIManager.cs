@@ -42,7 +42,8 @@ public class UIManager : MonoBehaviour
         highScore = GameObject.Find("HighScoreTxt")?.GetComponent<Text>();
         uiGameOver = GameObject.Find("UIGameOver");
 
-        GameManager.Instance.score = 0;
+        DataManager.Instance.score = 0;
+        Time.timeScale = 1;
 
         if (uiGameOver != null)
         {
@@ -51,19 +52,19 @@ public class UIManager : MonoBehaviour
 
         if (highScore != null)
         {
-            highScore.text = GameManager.Instance.highScoreValue.ToString();
+            highScore.text = DataManager.Instance.highScoreValue.ToString();
         }
     }
 
     void Update()
     {
         if (cherryTxt != null)
-            cherryTxt.text = GameManager.Instance.cherryCount.ToString();
+            cherryTxt.text = DataManager.Instance.cherryCount.ToString();
 
         if (currentScore != null)
-            currentScore.text = GameManager.Instance.score.ToString();
+            currentScore.text = DataManager.Instance.score.ToString();
 
         if (highScore != null)
-            highScore.text = GameManager.Instance.highScoreValue.ToString();
+            highScore.text = DataManager.Instance.highScoreValue.ToString();
     }
 }

@@ -1476,7 +1476,7 @@ GameObject:
   - component: {fileID: 1802473864}
   - component: {fileID: 1802473863}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: DataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2075,6 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3faa2c6a1d3074c4d92dd3ac7805db5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7771128197359169101}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

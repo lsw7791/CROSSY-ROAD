@@ -76,6 +76,12 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    void GenerateCherry()
+    {
+
+    }
+
+
     void DestroyObjectsBehindPlayer()
     {
         for (int i = spawnedObjects.Count - 1; i >= 0; i--)
