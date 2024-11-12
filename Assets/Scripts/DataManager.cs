@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
     public GameObject player;
+    public GameObject playerPrefab;  
     public int cherryCount;
     public int highScoreValue;
     public int score;
@@ -14,11 +16,11 @@ public class DataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
 
@@ -29,19 +31,25 @@ public class DataManager : MonoBehaviour
 
     private void Update()
     {
-        player = FindObjectOfType<Player>()?.gameObject;
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
 
+        // 하이스코어 갱신
         if (score > highScoreValue)
         {
             highScoreValue = score;
-
-            // 하이스코어 저장
             PlayerPrefs.SetFloat("HighScore", highScoreValue);
             PlayerPrefs.Save();
         }
     }
+
     private void FixedUpdate()
     {
-        score = (int)Mathf.Max(player.transform.position.z / 2, 0);
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            score = (int)Mathf.Max(player.transform.position.z / 2, 0);
+        }
     }
 }

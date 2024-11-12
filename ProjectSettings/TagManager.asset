@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Tree
   - Car
+  - Cherry
   layers:
   - Default
   - TransparentFX
